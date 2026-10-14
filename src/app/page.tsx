@@ -1,3 +1,4 @@
+import Guestbook from "@/components/Guestbook";
 import LinkList from "@/components/LinkList";
 import ProfileHeader from "@/components/ProfileHeader";
 import { links, profile } from "@/data/profile";
@@ -8,6 +9,7 @@ export default function Home() {
       <div className="flex w-full max-w-sm flex-col items-center gap-12">
         <ProfileHeader profile={profile} />
         <LinkList links={links} />
+        <Guestbook />
       </div>
     </main>
   );
