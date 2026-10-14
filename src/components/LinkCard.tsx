@@ -35,7 +35,7 @@ export default function LinkCard({ link, count, onClick }: Props) {
       <span className="font-semibold tracking-wide">{link.title}</span>
       <span
         aria-label={`클릭 ${count}회`}
-        className="absolute right-5 text-xs text-muted tabular-nums"
+        className="absolute right-3 text-xs text-muted tabular-nums"
       >
         {count.toLocaleString("ko-KR")}회
       </span>
