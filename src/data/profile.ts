@@ -9,6 +9,8 @@ export type LinkItem = {
   id: string;
   title: string;
   url: string;
+  /** 카드 제목 앞에 표시할 이모지 */
+  emoji: string;
 };
 
 // 여기 값을 바꿔서 내 프로필과 링크를 설정하세요.
@@ -19,7 +21,7 @@ export const profile: Profile = {
 };
 
 export const links: LinkItem[] = [
-  { id: "github", title: "GitHub", url: "https://github.com/seunghwan13" },
-  { id: "linktree", title: "Linktree", url: "https://linktr.ee/Hwan.Tim" },
-  { id: "blog", title: "Blog", url: "https://blog.naver.com/seung_hwun7" },
+  { id: "github", emoji: "🐙", title: "GitHub", url: "https://github.com/seunghwan13" },
+  { id: "linktree", emoji: "🌳", title: "Linktree", url: "https://linktr.ee/Hwan.Tim" },
+  { id: "blog", emoji: "📝", title: "Blog", url: "https://blog.naver.com/seung_hwun7" },
 ];

@@ -4,12 +4,11 @@ import { links, profile } from "@/data/profile";
 
 export default function Home() {
   return (
-    <main className="flex flex-1 items-center justify-center px-4 py-10 sm:py-16">
-      {/* 와이어프레임의 바깥 둥근 카드 */}
-      <section className="flex w-full max-w-md flex-col items-center gap-10 rounded-[2rem] border-2 border-foreground/80 bg-background px-6 pt-12 pb-10 shadow-sm sm:px-10">
+    <main className="flex flex-1 justify-center px-7 pt-20 pb-16 sm:px-8 sm:pt-28">
+      <div className="flex w-full max-w-sm flex-col items-center gap-12">
         <ProfileHeader profile={profile} />
         <LinkList links={links} />
-      </section>
+      </div>
     </main>
   );
 }

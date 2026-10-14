@@ -7,13 +7,13 @@ export default function ProfileHeader({ profile }: { profile: Profile }) {
       <Image
         src={profile.image}
         alt={`${profile.name} 프로필 사진`}
-        width={160}
-        height={160}
+        width={192}
+        height={192}
         priority
-        className="h-32 w-32 rounded-full border-2 border-foreground/80 object-cover sm:h-40 sm:w-40"
+        className="h-28 w-28 rounded-full object-cover ring-4 ring-[var(--avatar-ring)] shadow-[var(--avatar-shadow)] sm:h-32 sm:w-32"
       />
-      <h1 className="mt-6 text-2xl font-bold tracking-tight">{profile.name}</h1>
-      <p className="mt-2 text-base text-foreground/70">{profile.bio}</p>
+      <h1 className="mt-7 text-2xl font-extrabold tracking-[0.08em]">{profile.name}</h1>
+      <p className="mt-2.5 text-[15px] leading-relaxed text-muted">{profile.bio}</p>
     </header>
   );
 }
