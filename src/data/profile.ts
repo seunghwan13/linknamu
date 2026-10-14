@@ -14,7 +14,7 @@ export type LinkItem = {
 // 여기 값을 바꿔서 내 프로필과 링크를 설정하세요.
 export const profile: Profile = {
   name: "TIM",
-  bio: "구청장을 꿈꾸는 9급공무원",
+  bio: '"구청장을 꿈꾸는 9급공무원"',
   image: "/profile.jpg",
 };
 
