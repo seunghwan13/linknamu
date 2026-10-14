@@ -2,8 +2,15 @@
 
 import type { LinkItem } from "@/data/profile";
 
-export default function LinkCard({ link }: { link: LinkItem }) {
+type Props = {
+  link: LinkItem;
+  count: number;
+  onClick: (id: string) => void;
+};
+
+export default function LinkCard({ link, count, onClick }: Props) {
   const trackClick = () => {
+    onClick(link.id);
     const endpoint = `/api/clicks/${encodeURIComponent(link.id)}`;
     // 새 탭으로 이동해도 요청이 유실되지 않도록 sendBeacon 우선 사용
     if (!navigator.sendBeacon?.(endpoint)) {
@@ -17,7 +24,7 @@ export default function LinkCard({ link }: { link: LinkItem }) {
       target="_blank"
       rel="noopener noreferrer"
       onClick={trackClick}
-      className="group relative flex w-full items-center justify-center rounded-3xl border border-[var(--glass-border)] bg-[var(--glass-bg)] px-14 py-[18px] shadow-[var(--glass-shadow)] backdrop-blur-xl backdrop-saturate-150 transition duration-300 ease-out hover:bg-[var(--glass-bg-hover)] hover:shadow-[var(--glass-shadow-hover)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-400 motion-safe:hover:-translate-y-px"
+      className="group relative flex w-full items-center justify-center rounded-3xl border border-[var(--glass-border)] bg-[var(--glass-bg)] px-16 py-[18px] shadow-[var(--glass-shadow)] backdrop-blur-xl backdrop-saturate-150 transition duration-300 ease-out hover:bg-[var(--glass-bg-hover)] hover:shadow-[var(--glass-shadow-hover)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-400 motion-safe:hover:-translate-y-px"
     >
       <span
         aria-hidden="true"
@@ -26,6 +33,12 @@ export default function LinkCard({ link }: { link: LinkItem }) {
         {link.emoji}
       </span>
       <span className="font-semibold tracking-wide">{link.title}</span>
+      <span
+        aria-label={`클릭 ${count}회`}
+        className="absolute right-5 text-xs text-muted tabular-nums"
+      >
+        {count.toLocaleString("ko-KR")}회
+      </span>
     </a>
   );
 }
