@@ -21,6 +21,5 @@ export const profile: Profile = {
 export const links: LinkItem[] = [
   { id: "github", title: "GitHub", url: "https://github.com/seunghwan13" },
   { id: "linktree", title: "Linktree", url: "https://linktr.ee/Hwan.Tim" },
-  // TODO: 실제 블로그 주소로 교체
-  { id: "blog", title: "Blog", url: "https://blog.naver.com/" },
+  { id: "blog", title: "Blog", url: "https://blog.naver.com/seung_hwun7" },
 ];
