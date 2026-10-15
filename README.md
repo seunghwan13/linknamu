@@ -14,8 +14,11 @@ http://localhost:3000 에서 확인합니다.
 
 ## 프로필·링크 수정
 
-`src/data/profile.ts` 에서 이름, 한 줄 소개, 프로필 사진, 링크 목록을 바꿉니다.
+`src/data/profile.ts` 에서 이름, 한 줄 소개, 프로필 사진을 바꿉니다.
 프로필 사진은 `public/` 에 넣고 `image` 경로를 바꾸면 됩니다.
+
+링크는 `/admin` 관리자 페이지에서 추가·수정·삭제·순서 변경합니다. MongoDB `settings` 컬렉션에 저장되며,
+한 번도 저장하지 않았다면 `profile.ts` 의 `defaultLinks` 를 보여줍니다.
 
 ## 클릭 수 집계
 

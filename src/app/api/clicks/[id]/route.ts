@@ -1,10 +1,11 @@
-import { links } from "@/data/profile";
+import { getLinks } from "@/lib/links";
 import { getDb, type ClickDoc } from "@/lib/mongodb";
 
 // 링크 클릭 시 해당 링크의 클릭 수를 1 증가시킵니다.
 export async function POST(_req: Request, ctx: RouteContext<"/api/clicks/[id]">) {
   const { id } = await ctx.params;
 
+  const links = await getLinks();
   if (!links.some((link) => link.id === id)) {
     return Response.json({ error: "존재하지 않는 링크입니다." }, { status: 404 });
   }

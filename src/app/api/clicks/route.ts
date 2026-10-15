@@ -1,5 +1,5 @@
 import { connection } from "next/server";
-import { links } from "@/data/profile";
+import { getLinks } from "@/lib/links";
 import { getDb, type ClickDoc } from "@/lib/mongodb";
 
 // 링크별 클릭 수를 조회합니다.
@@ -11,7 +11,10 @@ export async function GET() {
     return Response.json({ error: "MONGODB_URI가 설정되지 않았습니다." }, { status: 503 });
   }
 
-  const docs = await db.collection<ClickDoc>("clicks").find().toArray();
+  const [links, docs] = await Promise.all([
+    getLinks(),
+    db.collection<ClickDoc>("clicks").find().toArray(),
+  ]);
   const counts = new Map(docs.map((doc) => [doc._id, doc.count]));
 
   return Response.json(

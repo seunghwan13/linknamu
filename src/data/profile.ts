@@ -13,14 +13,18 @@ export type LinkItem = {
   emoji: string;
 };
 
-// 여기 값을 바꿔서 내 프로필과 링크를 설정하세요.
+/** 공유 버튼과 QR 코드에 쓰는 사이트 주소 */
+export const siteUrl = "https://timkim.org";
+
+// 여기 값을 바꿔서 내 프로필을 설정하세요.
 export const profile: Profile = {
   name: "TIM",
   bio: '"구청장을 꿈꾸는 9급공무원"',
   image: "/profile.jpg",
 };
 
-export const links: LinkItem[] = [
+/** 링크는 관리자 페이지에서 편집합니다. DB에 저장된 링크가 없을 때만 이 기본값을 보여줍니다. */
+export const defaultLinks: LinkItem[] = [
   { id: "github", emoji: "🐙", title: "GitHub", url: "https://github.com/seunghwan13" },
   { id: "linktree", emoji: "🌳", title: "Linktree", url: "https://linktr.ee/Hwan.Tim" },
   { id: "blog", emoji: "📝", title: "Blog", url: "https://blog.naver.com/seung_hwun7" },
