@@ -1,5 +1,6 @@
 import { createHash, createHmac, timingSafeEqual } from "node:crypto";
 import { cookies } from "next/headers";
+import { connection } from "next/server";
 
 export const ADMIN_COOKIE = "admin_session";
 export const SESSION_MAX_AGE = 60 * 60 * 12; // 12시간
@@ -48,6 +49,8 @@ function verifySessionToken(token: string | undefined) {
 }
 
 export async function isAdmin() {
+  // 세션 만료 확인(Date.now)은 미리 렌더링하지 않고 요청 시점에 실행
+  await connection();
   const cookieStore = await cookies();
   return verifySessionToken(cookieStore.get(ADMIN_COOKIE)?.value);
 }
